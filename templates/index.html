@@ -1,0 +1,47 @@
+<html>
+   <head>
+      <title> Fields</title>
+   </head>
+
+   <!-- get flashed messages -->
+   {% with messages = get_flashed_messages() %}
+      {% if messages %}
+         {% for message in messages %}
+            <h1> {{ message }} </h1>
+         {% endfor %}
+     {% endif %}
+   {% endwith %}
+
+   <body>
+      <h1>Alumni and Friends</h1>
+
+      <form method=post action="">
+      <br>
+      Enter your name
+         {{ template_form.name_field }}
+         <br>
+      Enter your email
+         {{ template_form.email_field }}
+      <br>
+         Create a password
+         {{ template_form.password_field}}
+         <br>
+      Enter year of graduation
+         {{ template_form.grad_field }}
+      <br>
+      Select a field
+         {{ template_form.select_field }}
+      <br>
+      Agree to be added to the system?
+         {{ template_form.boolean_field }}
+      <br>
+         {% if result != None %}
+            {{ result }}
+         {% endif %}
+      <br>
+        <input type=submit value=ADD>
+      </form>
+
+   </body>
+</html>
+
